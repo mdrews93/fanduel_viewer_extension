@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Value Viewier",
+  "version": "0.1",
+
+  "content_scripts": [
+    {
+      "js": ["value_viewer.js"],
+      "matches": ["https://www.fanduel.com/games/*"],
+      "run_at": "document_end"
+    }
+  ]
+}
