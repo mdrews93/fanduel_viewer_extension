@@ -2,7 +2,7 @@
 
 ## Overview
 
-This extension computes and displays the value of a pick when viewing a Live lineup. It's in very early stages and the code is shit, so it's all a WIP.
+This extension computes and displays the value of a pick when viewing a live or historical lineup. It's in very early stages and the code is shit, so it's all a WIP.
 
 ## Installation
 Clone this repository to somewhere on your computer: `git clone https://github.com/mdrews93/fanduel_viewer_extension.git`
@@ -15,12 +15,11 @@ Click on "Load Unpacked" in the top-left and select the "fanduel\_viewer_extensi
 
 ## How to use
 
-Once the lineup pages loads, wait 5 seconds (it's hardcoded in, I told you the code was shit). Then you have to click on the little arrow in the bottom right:
+Once the lineup pages loads, wait ~~5~~ 4 seconds (it's hardcoded in, I told you the code was shit). Then you have to click on the little arrow in the bottom right:
 ![example](assets/example.png)
 
-Wait another 2 seconds (yupp, another one) and then the value should appear next to the score.
+Wait another ~~2~~ 1.5 seconds (yupp, another one) and then the value should appear next to the score.
 
 ## Issues
-* Once the FanDuel website autorefreshes your lineup scores, the values will disappear and you'll have to refresh the page to see them again. 
-* It might only work on players whose game is still active
-* Hella more
+* Once the FanDuel website autorefreshes your live lineup scores, the values will disappear and you'll have to refresh the page to calculate them again. 
+* If you resize the webpage causing the player's card to adjust its layout, you'll need to refresh the page

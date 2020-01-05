@@ -5,52 +5,46 @@ var convert_score = score => {
   return parseFloat(score);
 };
 
-function add_value(arguments) {
-  var scoreElt = arguments[0].path[8].querySelectorAll(
+var add_value = mouse_event => {
+  var elts = mouse_event.path[8].querySelectorAll(
     "[data-test-id=data-chunk-value]"
-  )[0];
+  );
+  var scoreElt;
+  var salaryElt;
+  for (var i = 0; i < elts.length; i++) {
+    if (!elts[i].innerText.includes("@") && !elts[i].innerText.includes("$")) {
+      scoreElt = elts[i];
+    } else if (elts[i].innerText.includes("$")) {
+      salaryElt = elts[i];
+    }
+  }
   if (!scoreElt.innerText.includes("x")) {
     var score = convert_salary(scoreElt.innerText);
-    var salary = convert_salary(
-      arguments[0].path[8].querySelectorAll(
-        "[data-test-id=data-chunk-value]"
-      )[2].innerText
-    );
+    var salary = convert_salary(salaryElt.innerText);
     var value = (score / (salary / 1000)).toPrecision(3);
     scoreElt.innerText = `${scoreElt.innerText} (${value}x)`;
   }
-}
+};
 
 var set_listeners = () => {
   var lineups = document.getElementsByClassName("lineup");
-
-  for (var lineup in lineups) {
-    if (
-      typeof lineups[lineup] === "object" &&
-      typeof lineups[lineup] !== null
-    ) {
-      var players = lineups[lineup].getElementsByClassName(
-        "lineup__slot--has-player"
-      );
-      for (const player in players) {
-        if (
-          typeof players[player] === "object" &&
-          typeof players[player] !== null
-        ) {
-          var svgs = players[player].getElementsByTagName("svg");
-          for (const svg in svgs) {
-            if (typeof svgs[svg] === "object" && typeof svgs[svg] !== null) {
-              svgs[svg].addEventListener("click", function() {
-                console.log("calculating value");
-                setTimeout(() => add_value(arguments), 2000);
-              });
-            }
-          }
-        }
+  for (var i = 0; i < lineups.length; i++) {
+    var players = lineups[i].getElementsByClassName("lineup__slot--has-player");
+    for (var j = 0; j < players.length; j++) {
+      var svgs = players[j].getElementsByTagName("svg");
+      for (var k = 0; k < svgs.length; k++) {
+        svgs[k].addEventListener("click", function(mouse_event) {
+          console.log("calculating value");
+          setTimeout(() => add_value(mouse_event), 1500);
+        });
       }
     }
   }
   console.log("listeners set");
 };
 
-setTimeout(set_listeners, 5000);
+var main = () => {
+  setTimeout(set_listeners, 4000);
+};
+
+main();
