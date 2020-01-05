@@ -5,13 +5,13 @@
 This extension computes and displays the value of a pick when viewing a live or historical lineup. It's in very early stages and the code is shit, so it's all a WIP.
 
 ## Installation
-Clone this repository to somewhere on your computer: `git clone https://github.com/mdrews93/fanduel_viewer_extension.git`
+Click the "Clone or Download" button and clone the repository or download the ZIP file.
 
-Go to `chrome://extensions`
+Go to `chrome://extensions`.
 
-Turn on "Developer Mode" at the top-right
+Turn on "Developer Mode" at the top-right.
 
-Click on "Load Unpacked" in the top-left and select the "fanduel\_viewer_extension" folder
+Click on "Load Unpacked" in the top-left and select the "fanduel\_viewer_extension" folder.
 
 ## How to use
 
